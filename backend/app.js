@@ -52,8 +52,10 @@ app.post("/login", async (req, res) => {
   }
 
   const AuthUser = {
-    name: login.name,
+    firstName: login.firstName,
+    lastName: login.lastName,
     role: login.role,
+    email: email,
   };
 
   res.json(AuthUser);

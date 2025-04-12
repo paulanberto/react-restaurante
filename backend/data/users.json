@@ -1,42 +1,23 @@
 [
   {
-    "email": "paula@berto",
-    "password": "1234",
-    "firstName": "Paula",
-    "lastName": "Berto",
-    "role": "student",
-    "termsAccepted": true
-  },
-  {
     "email": "paula@gmail.com",
     "password": "1234",
     "firstName": "Paula",
-    "lastName": "B",
-    "role": "student",
-    "termsAccepted": true
+    "lastName": "Berto",
+    "role": "manager"
   },
   {
-    "email": "paula@gmail.pt",
+    "email": "mauro@gmail.com",
     "password": "1234",
-    "firstName": "Paula",
-    "lastName": "Nunes",
-    "role": "student",
-    "termsAccepted": true
+    "firstName": "Mauro",
+    "lastName": "Coelho",
+    "role": "customer"
   },
   {
-    "email": "paula@gmail.pt",
+    "email": "bruno@gmail.com",
     "password": "1234",
-    "firstName": "Paula",
-    "lastName": "Nunes",
-    "role": "student",
-    "termsAccepted": true
-  },
-  {
-    "email": "paula@gmail.pt",
-    "password": "1234",
-    "firstName": "Paula",
-    "lastName": "B",
-    "role": "teacher",
-    "termsAccepted": true
+    "firstName": "Bruno",
+    "lastName": "Balmaint",
+    "role": "chef"
   }
 ]

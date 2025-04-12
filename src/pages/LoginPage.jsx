@@ -18,9 +18,9 @@ export default function LoginPage() {
       password: data.password,
     };
 
-    let sucess = await login(user);
+    const success = await login(user);
 
-    if (sucess) {
+    if (success) {
       navigate("/");
     } else {
       alert("Login falhou");

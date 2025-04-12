@@ -55,7 +55,6 @@ app.post("/login", async (req, res) => {
     firstName: login.firstName,
     lastName: login.lastName,
     role: login.role,
-    email: email,
   };
 
   res.json(AuthUser);

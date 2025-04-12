@@ -13,15 +13,25 @@ export default function Header() {
           <li>
             <a href="/">Home</a>
           </li>
+          {user && user.role === "manager" && (
+            <li>
+              <a href="/dashboard">Dashboard</a>
+            </li>
+          )}
+          {user && user.role === "customer" && (
+            <li>
+              <a href="/order">Fazer Pedido</a>
+            </li>
+          )}
+          {user && user.role === "kitchen" && (
+            <li>
+              <a href="/kitchen">Todos os Pedidos</a>
+            </li>
+          )}
           {user ? (
-            <>
-              <li>
-                <a href="/profile">Perfil</a>
-              </li>
-              <li>
-                <Button onClick={logout} text="Logout" type="button" />
-              </li>
-            </>
+            <li>
+              <Button onClick={logout} text="Logout" type="button" />
+            </li>
           ) : (
             <>
               <li>

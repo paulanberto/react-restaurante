@@ -61,7 +61,7 @@ export default function CreateMenuPage() {
             name="starter"
             onChange={(event) => setStarter(event.target.value)}
             value={starter}
-            required
+            isRequired
           />
         </div>
 
@@ -71,7 +71,7 @@ export default function CreateMenuPage() {
             name="main"
             onChange={(event) => setMain(event.target.value)}
             value={main}
-            required
+            isRequired
           />
         </div>
 
@@ -81,7 +81,7 @@ export default function CreateMenuPage() {
             name="dessert"
             onChange={(event) => setDessert(event.target.value)}
             value={dessert}
-            required
+            isRequired
           />
         </div>
       </div>

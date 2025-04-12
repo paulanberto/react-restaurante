@@ -2,25 +2,19 @@
   {
     "id": "h1j2k3l4",
     "customer": "Mauro Coelho",
-    "starters": "Bruschetta",
-    "main": "Pizza",
-    "desserts": "Sorvete",
+    "menu": "Menu 1",
     "status": "Entregue"
   },
   {
     "id": "i5j6k7l8",
     "customer": "Marcos Paiva",
-    "starters": "Salada",
-    "main": "Hamburguer",
-    "desserts": "Pudim",
+    "menu": "Menu 2",
     "status": "Confecção"
   },
   {
     "id": "j9k0l1m2",
     "customer": "Marcos Paiva",
-    "starters": "Croquetes",
-    "main": "Frango",
-    "desserts": "Sorvete",
+    "menu": "Menu 3",
     "status": "Confecção"
   }
 ]

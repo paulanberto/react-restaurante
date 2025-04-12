@@ -23,19 +23,20 @@ app.get("/users", async (req, res) => {
 
 // rotas de menus
 app.get("/menus", async (req, res) => {
-  const fileContent = await fs.readFile("./data/menu.json");
-  const users = JSON.parse(fileContent);
-  res.status(200).json({ users });
+  const fileContent = await fs.readFile("./data/menus.json");
+  const menus = JSON.parse(fileContent);
+  res.status(200).json({ menus });
 });
 app.post("/menus", async (req, res) => {
-  const fileContent = await fs.readFile("./data/menu.json", "utf-8");
-  const menu = JSON.parse(fileContent);
+  const fileContent = await fs.readFile("./data/menus.json", "utf-8");
+  const menus = JSON.parse(fileContent);
 
-  const newMenu = req.body;
-  menu.push(newMenu);
+  const newMenus = req.body;
+  newMenus.id = new Date().getTime().toString();
+  menus.push(newMenus);
 
-  await fs.writeFile("./data/menu.json", JSON.stringify(menu, null, 2));
-  res.status(200).json({ message: "Menu Item Inserted!" });
+  await fs.writeFile("./data/menus.json", JSON.stringify(newMenus, null, 2));
+  res.status(200).json({ message: "Menu Inserted!" });
 });
 
 // rotas de pedidos
@@ -44,6 +45,8 @@ app.post("/orders", async (req, res) => {
   const orders = JSON.parse(fileContent);
 
   const newOrder = req.body;
+  newOrder.id = new Date().getTime().toString();
+  newOrder.status = "Confecção";
   orders.push(newOrder);
 
   await fs.writeFile("./data/orders.json", JSON.stringify(orders, null, 2));

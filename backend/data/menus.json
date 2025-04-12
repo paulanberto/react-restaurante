@@ -1,20 +1,28 @@
 [
   {
+    "id": "d123f4",
+    "name": "Menu 1",
     "starter": "Bruschetta",
     "main": "Pizza",
     "dessert": "Sorvete"
   },
   {
+    "id": "d123f5",
+    "name": "Menu 2",
     "starter": "Salada",
     "main": "Hamburguer",
     "dessert": "Pudim"
   },
   {
+    "id": "d123f6",
+    "name": "Menu 3",
     "starter": "Croquetes",
     "main": "Frango",
     "dessert": "Sorvete"
   },
   {
+    "id": "d123f7",
+    "name": "Menu 4",
     "starter": "Batata frita",
     "main": "Pizza",
     "dessert": "Pudim"

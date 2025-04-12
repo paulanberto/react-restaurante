@@ -21,13 +21,13 @@ app.get("/users", async (req, res) => {
   res.status(200).json({ users });
 });
 
-// rotas de menu
-app.get("/menu", async (req, res) => {
+// rotas de menus
+app.get("/menus", async (req, res) => {
   const fileContent = await fs.readFile("./data/menu.json");
   const users = JSON.parse(fileContent);
   res.status(200).json({ users });
 });
-app.post("/create-menu", async (req, res) => {
+app.post("/menus", async (req, res) => {
   const fileContent = await fs.readFile("./data/menu.json", "utf-8");
   const menu = JSON.parse(fileContent);
 
@@ -39,14 +39,14 @@ app.post("/create-menu", async (req, res) => {
 });
 
 // rotas de pedidos
-app.post("/order", async (req, res) => {
+app.post("/orders", async (req, res) => {
   const fileContent = await fs.readFile("./data/orders.json", "utf-8");
   const orders = JSON.parse(fileContent);
 
   const newOrder = req.body;
   orders.push(newOrder);
 
-  await fs.writeFile("./data/menu.json", JSON.stringify(orders, null, 2));
+  await fs.writeFile("./data/orders.json", JSON.stringify(orders, null, 2));
   res.status(200).json({ message: "Order Inserted!" });
 });
 app.get("/orders", async (req, res) => {
@@ -54,8 +54,24 @@ app.get("/orders", async (req, res) => {
   const orders = JSON.parse(fileContent);
   res.status(200).json({ orders });
 });
+app.put("/orders/:id", async (req, res) => {
+  const fileContent = await fs.readFile("./data/orders.json", "utf-8");
+  const orders = JSON.parse(fileContent);
 
-//rotas de users
+  const orderId = req.params.id;
+  const orderIndex = orders.findIndex((order) => order.id === orderId);
+
+  if (orderIndex === -1) {
+    return res.status(404).json({ message: "Order not found" });
+  }
+
+  orders[orderIndex] = { ...orders[orderIndex], ...req.body };
+
+  await fs.writeFile("./data/orders.json", JSON.stringify(orders, null, 2));
+  res.status(200).json({ message: "Order updated!" });
+});
+
+// rotas de usuários
 //rota de registo
 app.post("/signup", async (req, res) => {
   const fileContent = await fs.readFile("./data/users.json", "utf-8");
@@ -68,7 +84,7 @@ app.post("/signup", async (req, res) => {
   res.status(200).json({ message: "User Inserted!" });
 });
 
-//rota de login (verifica se há user e se sim gera um token)
+// rota de login
 app.post("/login", async (req, res) => {
   const fileContent = await fs.readFile("./data/users.json");
   const users = JSON.parse(fileContent);

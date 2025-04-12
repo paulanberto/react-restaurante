@@ -3,9 +3,13 @@ import { AuthContext } from "../contexts/AuthContext";
 import { Navigate } from "react-router-dom";
 
 export default function OnlyCustomer({ element }) {
-  const { user } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
 
-  if (user && user.role !== "customer") {
+  if (loading) {
+    return null;
+  }
+
+  if (!user || (user && user.role !== "customer")) {
     return <Navigate to="/login" replace />;
   }
 

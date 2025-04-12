@@ -1,5 +1,6 @@
 [
   {
+    "id": "c123f1",
     "email": "paula@gmail.com",
     "password": "1234",
     "firstName": "Paula",
@@ -7,6 +8,7 @@
     "role": "manager"
   },
   {
+    "id": "c123f2",
     "email": "mauro@gmail.com",
     "password": "1234",
     "firstName": "Mauro",
@@ -14,6 +16,7 @@
     "role": "customer"
   },
   {
+    "id": "c123f3",
     "email": "marcos@gmail.com",
     "password": "1234",
     "firstName": "Marcos",
@@ -21,6 +24,7 @@
     "role": "customer"
   },
   {
+    "id": "c123f4",
     "email": "bruno@gmail.com",
     "password": "1234",
     "firstName": "Bruno",

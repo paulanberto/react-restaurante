@@ -1,18 +1,8 @@
-import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { AuthContext } from "../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 
 export default function CreateMenuPage() {
-  const { user } = useContext(AuthContext);
-
-  if (!user) {
-    return <div>Você não está logado.</div>;
-  }
-
-  if (user.role !== "manager") {
-    return <div>Você não tem permissão para acessar esta página.</div>;
-  }
+  const navigate = useNavigate();
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -25,15 +15,27 @@ export default function CreateMenuPage() {
       dessert: data.dessert,
     };
 
-    console.log("menu", menu);
+    const response = await fetch("http://localhost:3000/menus", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(menu),
+    });
 
-    // const success = await createMenu(menu);
+    if (!response.ok) {
+      console.error("Erro ao criar o menu.");
+      return;
+    }
 
-    // if (success) {
-    //   navigate("/");
-    // } else {
-    //   alert("Falha ao criar o menu");
-    // }
+    const result = await response.json();
+    console.log("Menu criado com sucesso:", result);
+
+    if (result.success) {
+      navigate("/");
+    } else {
+      alert("Falha ao criar o menu");
+    }
   }
 
   return (

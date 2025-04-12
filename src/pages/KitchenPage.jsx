@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import { useContext, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 
 export default function KitchenPage() {
-  const { user } = useContext(AuthContext);
   const [orders, setOrders] = useState(null);
 
   useEffect(() => {
@@ -16,13 +15,21 @@ export default function KitchenPage() {
     setOrders(data.orders);
   };
 
-  if (!user) {
-    return <div>Você não está logado.</div>;
-  }
+  const markAsDelivered = async (id) => {
+    const response = await fetch(`http://localhost:3000/orders/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ status: "Entregue" }),
+    });
 
-  if (user.role !== "chef") {
-    return <div>Você não tem permissão para acessar esta página.</div>;
-  }
+    if (response.ok) {
+      await getOrders();
+    } else {
+      console.error("Erro ao atualizar o pedido.");
+    }
+  };
 
   return (
     <div>
@@ -38,6 +45,8 @@ export default function KitchenPage() {
               <th>Entradas</th>
               <th>Prato Principal</th>
               <th>Sobremesas</th>
+              <th>Status</th>
+              <th>Ações</th>
             </tr>
           </thead>
           <tbody>
@@ -47,6 +56,17 @@ export default function KitchenPage() {
                 <td>{order.starters}</td>
                 <td>{order.main}</td>
                 <td>{order.desserts}</td>
+                <td>{order.status}</td>
+                <td>
+                  {order.status === "Entregue" ? (
+                    <span>Pronto</span>
+                  ) : (
+                    <span>Em Preparação</span>
+                  )}
+                  <button onClick={() => markAsDelivered(order.id)}>
+                    Marcar como Pronto
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>

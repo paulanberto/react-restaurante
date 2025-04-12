@@ -31,11 +31,11 @@ app.post("/menus", async (req, res) => {
   const fileContent = await fs.readFile("./data/menus.json", "utf-8");
   const menus = JSON.parse(fileContent);
 
-  const newMenus = req.body;
-  newMenus.id = new Date().getTime().toString();
-  menus.push(newMenus);
+  const newMenu = req.body;
+  newMenu.id = new Date().getTime().toString();
+  menus.push(newMenu);
 
-  await fs.writeFile("./data/menus.json", JSON.stringify(newMenus, null, 2));
+  await fs.writeFile("./data/menus.json", JSON.stringify(menus, null, 2));
   res.status(200).json({ message: "Menu Inserted!" });
 });
 

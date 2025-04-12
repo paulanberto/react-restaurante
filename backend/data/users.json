@@ -1,0 +1,42 @@
+[
+  {
+    "email": "paula@berto",
+    "password": "1234",
+    "firstName": "Paula",
+    "lastName": "Berto",
+    "role": "student",
+    "termsAccepted": true
+  },
+  {
+    "email": "paula@gmail.com",
+    "password": "1234",
+    "firstName": "Paula",
+    "lastName": "B",
+    "role": "student",
+    "termsAccepted": true
+  },
+  {
+    "email": "paula@gmail.pt",
+    "password": "1234",
+    "firstName": "Paula",
+    "lastName": "Nunes",
+    "role": "student",
+    "termsAccepted": true
+  },
+  {
+    "email": "paula@gmail.pt",
+    "password": "1234",
+    "firstName": "Paula",
+    "lastName": "Nunes",
+    "role": "student",
+    "termsAccepted": true
+  },
+  {
+    "email": "paula@gmail.pt",
+    "password": "1234",
+    "firstName": "Paula",
+    "lastName": "B",
+    "role": "teacher",
+    "termsAccepted": true
+  }
+]

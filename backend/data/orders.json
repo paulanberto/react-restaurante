@@ -1,0 +1,14 @@
+[
+  {
+    "customer": "Mauro Coelho",
+    "starter": "Bruschetta",
+    "main": "Pizza",
+    "dessert": "Sorvete"
+  },
+  {
+    "customer": "Marcos Paiva",
+    "starter": "Salada",
+    "main": "Hamburguer",
+    "dessert": "Pudim"
+  }
+]

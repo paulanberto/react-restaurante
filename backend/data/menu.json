@@ -1,0 +1,12 @@
+[
+  {
+    "starter": "Bruschetta",
+    "main": "Pizza",
+    "dessert": "Sorvete"
+  },
+  {
+    "starter": "Salada",
+    "main": "Hamburguer",
+    "dessert": "Pudim"
+  }
+]

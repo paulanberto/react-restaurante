@@ -21,6 +21,40 @@ app.get("/users", async (req, res) => {
   res.status(200).json({ users });
 });
 
+// rotas de menu
+app.get("/menu", async (req, res) => {
+  const fileContent = await fs.readFile("./data/menu.json");
+  const users = JSON.parse(fileContent);
+  res.status(200).json({ users });
+});
+app.post("/create-menu", async (req, res) => {
+  const fileContent = await fs.readFile("./data/menu.json", "utf-8");
+  const menu = JSON.parse(fileContent);
+
+  const newMenu = req.body;
+  menu.push(newMenu);
+
+  await fs.writeFile("./data/menu.json", JSON.stringify(menu, null, 2));
+  res.status(200).json({ message: "Menu Item Inserted!" });
+});
+
+// rotas de pedidos
+app.post("/order", async (req, res) => {
+  const fileContent = await fs.readFile("./data/orders.json", "utf-8");
+  const orders = JSON.parse(fileContent);
+
+  const newOrder = req.body;
+  orders.push(newOrder);
+
+  await fs.writeFile("./data/menu.json", JSON.stringify(orders, null, 2));
+  res.status(200).json({ message: "Order Inserted!" });
+});
+app.get("/orders", async (req, res) => {
+  const fileContent = await fs.readFile("./data/orders.json");
+  const orders = JSON.parse(fileContent);
+  res.status(200).json({ orders });
+});
+
 //rotas de users
 //rota de registo
 app.post("/signup", async (req, res) => {

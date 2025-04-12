@@ -42,9 +42,7 @@ export default function KitchenPage() {
           <thead>
             <tr>
               <th>Nome do Cliente</th>
-              <th>Entradas</th>
-              <th>Prato Principal</th>
-              <th>Sobremesas</th>
+              <th>Menu</th>
               <th>Status</th>
               <th>Ações</th>
             </tr>
@@ -53,19 +51,14 @@ export default function KitchenPage() {
             {orders.map((order) => (
               <tr key={order.id}>
                 <td>{order.customer}</td>
-                <td>{order.starters}</td>
-                <td>{order.main}</td>
-                <td>{order.desserts}</td>
+                <td>{order.menu}</td>
                 <td>{order.status}</td>
                 <td>
-                  {order.status === "Entregue" ? (
-                    <span>Pronto</span>
-                  ) : (
-                    <span>Em Preparação</span>
+                  {order.status !== "Entregue" && (
+                    <button onClick={() => markAsDelivered(order.id)}>
+                      Marcar como Entregue
+                    </button>
                   )}
-                  <button onClick={() => markAsDelivered(order.id)}>
-                    Marcar como Pronto
-                  </button>
                 </td>
               </tr>
             ))}

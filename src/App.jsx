@@ -11,7 +11,7 @@ import OnlyKitchen from "./protectedRoutes/OnlyKitchen";
 import OnlyManager from "./protectedRoutes/OnlyManager";
 import OrderPage from "./pages/OrderPage";
 import KitchenPage from "./pages/KitchenPage";
-import DashboardPage from "./pages/DashboardPage";
+import CreateMenuPage from "./pages/CreateMenuPage";
 
 const router = createBrowserRouter([
   {
@@ -37,8 +37,8 @@ const router = createBrowserRouter([
         element: <OnlyKitchen element={<KitchenPage />} />,
       },
       {
-        path: "/dashboard",
-        element: <OnlyManager element={<DashboardPage />} />,
+        path: "/create-menu",
+        element: <OnlyManager element={<CreateMenuPage />} />,
       },
     ],
   },

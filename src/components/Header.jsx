@@ -15,7 +15,7 @@ export default function Header() {
           </li>
           {user && user.role === "manager" && (
             <li>
-              <a href="/dashboard">Dashboard</a>
+              <a href="/create-menu">Create Menu</a>
             </li>
           )}
           {user && user.role === "customer" && (

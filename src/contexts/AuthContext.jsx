@@ -6,10 +6,16 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const storedUser = localStorage.getItem("user");
+    const storedFirstName = localStorage.getItem("firstName");
+    const storedLastName = localStorage.getItem("lastName");
+    const storedRole = localStorage.getItem("role");
 
-    if (storedUser) {
-      setUser({ user: storedUser });
+    if (storedFirstName && storedLastName && storedRole) {
+      setUser({
+        firstName: storedFirstName,
+        lastName: storedLastName,
+        role: storedRole,
+      });
     }
   }, []);
 
@@ -27,14 +33,17 @@ export const AuthProvider = ({ children }) => {
     }
 
     const data = await response.json();
-    console.log("data", data);
-    localStorage.setItem("user", JSON.stringify(data));
-    setUser({ user: data });
+    localStorage.setItem("firstName", data.firstName);
+    localStorage.setItem("lastName", data.lastName);
+    localStorage.setItem("role", data.role);
+    setUser(data);
     return true;
   };
 
   const logout = () => {
-    localStorage.removeItem("user");
+    localStorage.removeItem("firstName");
+    localStorage.removeItem("lastName");
+    localStorage.removeItem("role");
     setUser(null);
   };
 

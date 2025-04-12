@@ -5,7 +5,9 @@ import { Navigate } from "react-router-dom";
 export default function OnlyManager({ element }) {
   const { user } = useContext(AuthContext);
 
-  if (!user || (user && user.role !== "manager")) {
+  console.log("OnlyManager user", user);
+
+  if (user && user.role !== "manager") {
     return <Navigate to="/login" replace />;
   }
 

@@ -6,7 +6,6 @@ import HomePage from "./pages/HomePage";
 import { AuthProvider } from "./contexts/AuthContext";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
-import ProfilePage from "./pages/ProfilePage";
 import OnlyCustomer from "./protectedRoutes/OnlyCustomer";
 import OnlyKitchen from "./protectedRoutes/OnlyKitchen";
 import OnlyManager from "./protectedRoutes/OnlyManager";
@@ -28,10 +27,6 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <LoginPage />,
-      },
-      {
-        path: "/profile",
-        element: <ProfilePage />,
       },
       {
         path: "/order",

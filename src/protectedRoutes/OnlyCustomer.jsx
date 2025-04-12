@@ -5,7 +5,7 @@ import { Navigate } from "react-router-dom";
 export default function OnlyCustomer({ element }) {
   const { user } = useContext(AuthContext);
 
-  if (!user || (user && user.role !== "customer")) {
+  if (user && user.role !== "customer") {
     return <Navigate to="/login" replace />;
   }
 

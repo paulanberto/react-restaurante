@@ -1,4 +1,4 @@
-# Projeto Final de React - Gerenciamento de Restaurante
+# Projecto Final de React - Gerenciamento de Restaurante
 
 ## Backend
 

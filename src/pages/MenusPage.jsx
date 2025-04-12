@@ -1,94 +1,48 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Button from "../components/Button";
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { AuthContext } from "../contexts/AuthContext";
 
-export default function CreateMenuPage() {
-  const navigate = useNavigate();
-  const [starter, setStarter] = useState("");
-  const [main, setMain] = useState("");
-  const [dessert, setDessert] = useState("");
-  const [error, setError] = useState(null);
+export default function MenusPage() {
+  const [menus, setMenus] = useState(null);
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData.entries());
+  useEffect(() => {
+    getMenus();
+  }, []);
 
-    const menu = {
-      starter: data.starter,
-      main: data.main,
-      dessert: data.dessert,
-    };
-
-    if (!menu.starter || !menu.main || !menu.dessert) {
-      setError("Todos os campos são obrigatórios.");
-      return;
-    }
-
-    const response = await fetch("http://localhost:3000/menus", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(menu),
-    });
-
-    if (!response.ok) {
-      console.error("Erro ao criar o menu.");
-      return;
-    }
-
-    const result = await response.json();
-
-    if (result) {
-      setError(null);
-      navigate("/menus");
-    } else {
-      setError("Erro ao criar o menu.");
-    }
-  }
+  const getMenus = async () => {
+    const response = await fetch("http://localhost:3000/menus");
+    const data = await response.json();
+    setMenus(data.menus);
+  };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Criar Menu</h2>
+    <div>
+      <h2>Todos os Pedidos</h2>
 
-      {error && <p className="error">{error}</p>}
-
-      <div className="control-row">
-        <div className="control no-margin">
-          <label htmlFor="starter">Entradas</label>
-          <input
-            name="starter"
-            onChange={(event) => setStarter(event.target.value)}
-            value={starter}
-            isRequired
-          />
-        </div>
-
-        <div className="control no-margin">
-          <label htmlFor="main">Prato Principal</label>
-          <input
-            name="main"
-            onChange={(event) => setMain(event.target.value)}
-            value={main}
-            isRequired
-          />
-        </div>
-
-        <div className="control no-margin">
-          <label htmlFor="dessert">Sobremesas</label>
-          <input
-            name="dessert"
-            onChange={(event) => setDessert(event.target.value)}
-            value={dessert}
-            isRequired
-          />
-        </div>
-      </div>
-
-      <p className="form-actions">
-        <Button text="Salvar" />
-      </p>
-    </form>
+      {!menus ? (
+        "Nenhum menu encontrado."
+      ) : (
+        <table className="table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Entradas</th>
+              <th scope="col">Prato Principal</th>
+              <th scope="col">Sobremesas</th>
+            </tr>
+          </thead>
+          <tbody>
+            {menus.map((menu) => (
+              <tr key={menu.id}>
+                <td scope="row">{menu.id}</td>
+                <td>{menu.starter}</td>
+                <td>{menu.main}</td>
+                <td>{menu.dessert}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+    </div>
   );
 }

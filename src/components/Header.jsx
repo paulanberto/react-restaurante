@@ -13,9 +13,14 @@ export default function Header() {
             <a href="/">Home</a>
           </li>
           {user && user.role === "manager" && (
-            <li className="nav-item">
-              <a href="/create-menu">Criar Menu</a>
-            </li>
+            <>
+              <li className="nav-item">
+                <a href="/menus">Todos os Menus</a>
+              </li>
+              <li className="nav-item">
+                <a href="/create-menu">Criar Menu</a>
+              </li>
+            </>
           )}
           {user && user.role === "customer" && (
             <li className="nav-item">

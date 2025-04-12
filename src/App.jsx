@@ -12,6 +12,7 @@ import OnlyManager from "./protectedRoutes/OnlyManager";
 import OrderPage from "./pages/OrderPage";
 import KitchenPage from "./pages/KitchenPage";
 import CreateMenuPage from "./pages/CreateMenuPage";
+import MenusPage from "./pages/MenusPage";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/create-menu",
         element: <OnlyManager element={<CreateMenuPage />} />,
+      },
+      {
+        path: "/menus",
+        element: <OnlyManager element={<MenusPage />} />,
       },
     ],
   },

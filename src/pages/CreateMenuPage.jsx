@@ -15,13 +15,7 @@ export default function CreateMenuPage() {
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData.entries());
 
-    const menu = {
-      starter: data.starter,
-      main: data.main,
-      dessert: data.dessert,
-    };
-
-    if (!menu.starter || !menu.main || !menu.dessert) {
+    if (!data.starter || !data.main || !data.dessert) {
       setError("Todos os campos são obrigatórios.");
       return;
     }
@@ -31,7 +25,7 @@ export default function CreateMenuPage() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(menu),
+      body: JSON.stringify(data),
     });
 
     if (!response.ok) {

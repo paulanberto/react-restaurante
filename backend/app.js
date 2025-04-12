@@ -35,6 +35,7 @@ app.post("/menus", async (req, res) => {
   newMenu.id = new Date().getTime().toString();
   menus.push(newMenu);
 
+  // This should be menus not newMenus
   await fs.writeFile("./data/menus.json", JSON.stringify(menus, null, 2));
   res.status(200).json({ message: "Menu Inserted!" });
 });

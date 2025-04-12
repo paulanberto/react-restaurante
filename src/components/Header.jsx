@@ -6,38 +6,42 @@ export default function Header() {
   const { user, logout } = useContext(AuthContext);
 
   return (
-    <header>
-      <h1>Restaurante Manager</h1>
-      <nav>
-        <ul>
-          <li>
+    <header className="navbar navbar-expand-lg bd-navbar sticky-top">
+      <nav className="container justify-content-center algin-items-center">
+        <ul className="navbar-nav gap-4 align-items-center">
+          <li className="nav-item">
             <a href="/">Home</a>
           </li>
           {user && user.role === "manager" && (
-            <li>
+            <li className="nav-item">
               <a href="/create-menu">Criar Menu</a>
             </li>
           )}
           {user && user.role === "customer" && (
-            <li>
+            <li className="nav-item">
               <a href="/order">Fazer Pedido</a>
             </li>
           )}
           {user && user.role === "chef" && (
-            <li>
+            <li className="nav-item">
               <a href="/kitchen">Todos os Pedidos</a>
             </li>
           )}
           {user ? (
-            <li>
-              <Button onClick={logout} text="Logout" type="button" />
+            <li className="nav-item">
+              <Button
+                onClick={logout}
+                className="btn btn-danger"
+                text="Logout"
+                type="button"
+              />
             </li>
           ) : (
             <>
-              <li>
+              <li className="nav-item">
                 <a href="/signup">Registo</a>
               </li>
-              <li>
+              <li className="nav-item">
                 <a href="/login">Login</a>
               </li>
             </>

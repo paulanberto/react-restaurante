@@ -38,18 +38,20 @@ export default function KitchenPage() {
       {!orders ? (
         "Nenhum pedido encontrado."
       ) : (
-        <table>
+        <table className="table">
           <thead>
             <tr>
-              <th>Nome do Cliente</th>
-              <th>Menu</th>
-              <th>Status</th>
-              <th>Ações</th>
+              <th scope="col">ID</th>
+              <th scope="col">Nome do Cliente</th>
+              <th scope="col">Menu</th>
+              <th scope="col">Status</th>
+              <th scope="col">Ações</th>
             </tr>
           </thead>
           <tbody>
             {orders.map((order) => (
               <tr key={order.id}>
+                <td scope="row">{order.id}</td>
                 <td>{order.customer}</td>
                 <td>{order.menu}</td>
                 <td>{order.status}</td>

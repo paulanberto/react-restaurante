@@ -52,43 +52,58 @@ export default function CreateMenuPage() {
     <form onSubmit={handleSubmit}>
       <h2>Criar Menu</h2>
 
-      {error && <p className="error">{error}</p>}
+      <div className="card p-4">
+        {error && <p className="error">{error}</p>}
 
-      <div className="control-row">
-        <div className="control no-margin">
-          <label htmlFor="starter">Entradas</label>
+        <div className="mb-3">
+          <label htmlFor="starter" className="form-label">
+            Entradas
+          </label>
           <input
             name="starter"
             onChange={(event) => setStarter(event.target.value)}
             value={starter}
             required
+            className="form-control"
+            id="starter"
+            type="text"
+            placeholder="Ex: Salada Caesar"
           />
         </div>
 
-        <div className="control no-margin">
-          <label htmlFor="main">Prato Principal</label>
+        <div className="mb-3">
+          <label htmlFor="main" className="form-label">
+            Prato Principal
+          </label>
           <input
             name="main"
             onChange={(event) => setMain(event.target.value)}
             value={main}
             required
+            className="form-control"
+            id="main"
+            type="text"
+            placeholder="Ex: Filé à Parmegiana"
           />
         </div>
 
-        <div className="control no-margin">
+        <div className="mb-3">
           <label htmlFor="dessert">Sobremesas</label>
           <input
             name="dessert"
             onChange={(event) => setDessert(event.target.value)}
             value={dessert}
             required
+            className="form-control"
+            id="dessert"
+            type="text"
+            placeholder="Ex: Pudim"
           />
         </div>
+        <div>
+          <Button text="Salvar" className="btn btn-primary" />
+        </div>
       </div>
-
-      <p className="form-actions">
-        <Button text="Salvar" />
-      </p>
     </form>
   );
 }

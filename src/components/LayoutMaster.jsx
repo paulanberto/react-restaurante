@@ -6,7 +6,9 @@ export default function LayoutMaster() {
   return (
     <>
       <Header />
-      <Outlet />
+      <div className="container mt-3 my-md-4">
+        <Outlet />
+      </div>
       <Footer author="Paula Berto" year={2025} />
     </>
   );

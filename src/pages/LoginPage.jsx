@@ -29,22 +29,31 @@ export default function LoginPage() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Login</h2>
-      <div className="control-row">
-        <div className="control no-margin">
-          <label htmlFor="email">Email</label>
-          <input name="email" />
+      <h1 className="mb-4">Login</h1>
+      <div className="card p-4">
+        <div class="mb-3">
+          <label htmlFor="email" class="form-label">
+            Email
+          </label>
+          <input name="email" id="email" class="form-control" />
         </div>
 
-        <div className="control no-margin">
-          <label htmlFor="password">Password</label>
-          <input id="password" type="password" name="password" />
+        <div class="mb-3">
+          <label htmlFor="password" class="form-label">
+            Password
+          </label>
+          <input
+            id="password"
+            type="password"
+            name="password"
+            class="form-control"
+          />
+        </div>
+
+        <div>
+          <Button className="btn btn-primary" text="Login" />
         </div>
       </div>
-
-      <p className="form-actions">
-        <Button text="Login" />
-      </p>
     </form>
   );
 }

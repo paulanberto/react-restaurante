@@ -65,12 +65,12 @@ export default function OrderPage() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Fazer Pedido</h2>
+      <h1 className="mb-4">Fazer Pedido</h1>
 
       {error && <p className="error">{error}</p>}
       {success && <p className="success">{success}</p>}
 
-      <div className="control-row">
+      <div className="bd-example m-0 border-0">
         <div className="control no-margin">
           <label htmlFor="menu">Menu</label>
           <select

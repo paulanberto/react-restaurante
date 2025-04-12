@@ -1,7 +1,9 @@
 export default function Footer({ author, year }) {
   return (
-    <footer>
-      Desenvolvido por <strong>{author}</strong> - {year}
+    <footer className="footer">
+      <div className="text-center">
+        {author} © {year}
+      </div>
     </footer>
   );
 }

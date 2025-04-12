@@ -39,70 +39,90 @@ export default function SignupPage() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Welcome on board!</h2>
-      <p>We just need a little bit of data from you to get you started 🚀</p>
+      <h1 className="mb-2">Welcome on board!</h1>
+      <p className="mb-5">
+        We just need a little bit of data from you to get you started 🚀
+      </p>
 
-      <div className="control">
-        <label htmlFor="email">Email</label>
-        <input id="email" type="email" name="email" required />
-      </div>
-
-      <div className="control-row">
-        <div className="control">
-          <label htmlFor="password">Password</label>
-          <input id="password" type="password" name="password" required />
+      <div className="card p-4">
+        <div class="mb-3">
+          <label htmlFor="email" class="form-label">
+            Email
+          </label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            class="form-control"
+            required
+          />
         </div>
-        <div className="control">
+
+        <div class="mb-3">
+          <label htmlFor="password" class="form-label">
+            Password
+          </label>
+          <input
+            id="password"
+            type="password"
+            name="password"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <div className="mb-3">
           <label htmlFor="confirm-password">Confirm Password</label>
           <input
             id="confirm-password"
             type="password"
             name="confirmPassword"
+            class="form-control"
             required
           />
           {passwordNotEqual && <p>As passwords não coincidem</p>}
         </div>
-      </div>
 
-      <hr />
-
-      <div className="control-row">
-        <div className="control">
-          <label htmlFor="first-name">First Name</label>
-          <input type="text" id="first-name" name="first-name" required />
-        </div>
-
-        <div className="control">
-          <label htmlFor="last-name">Last Name</label>
-          <input type="text" id="last-name" name="last-name" required />
-        </div>
-      </div>
-
-      <div className="control">
-        <label htmlFor="phone">What best describes your role?</label>
-        <select id="role" name="role" required>
-          <option value="student">Student</option>
-          <option value="teacher">Teacher</option>
-          <option value="employee">Employee</option>
-          <option value="founder">Founder</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-      <div className="control">
-        <label htmlFor="terms-and-conditions">
+        <div class="mb-3">
+          <label htmlFor="first-name" class="form-label">
+            First Name
+          </label>
           <input
+            type="text"
+            id="first-name"
+            class="form-control"
+            name="first-name"
             required
-            type="checkbox"
-            id="terms-and-conditions"
-            name="terms"
           />
-          I agree to the terms and conditions
-        </label>
-      </div>
+        </div>
 
-      <p className="form-actions">
-        <Button text="Sign up" />
-      </p>
+        <div class="mb-3">
+          <label htmlFor="last-name" class="form-label">
+            Last Name
+          </label>
+          <input
+            type="text"
+            id="last-name"
+            class="form-control"
+            name="last-name"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label htmlFor="phone" class="form-label">
+            What best describes your role?
+          </label>
+          <select id="role" name="role" class="form-select" required>
+            <option value="chef">Chef</option>
+            <option value="customer">Customer</option>
+          </select>
+        </div>
+
+        <div>
+          <Button text="Sign Up" className="btn btn-primary" />
+        </div>
+      </div>
     </form>
   );
 }

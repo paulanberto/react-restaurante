@@ -22,7 +22,7 @@ export default function CreateMenuPage() {
     const menu = {
       starter: data.starter,
       main: data.main,
-      desert: data.desert,
+      dessert: data.dessert,
     };
 
     console.log("menu", menu);
@@ -51,8 +51,8 @@ export default function CreateMenuPage() {
         </div>
 
         <div className="control no-margin">
-          <label htmlFor="desert">Sobremesas</label>
-          <input name="desert" />
+          <label htmlFor="dessert">Sobremesas</label>
+          <input name="dessert" />
         </div>
       </div>
 

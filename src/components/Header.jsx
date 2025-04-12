@@ -23,7 +23,7 @@ export default function Header() {
               <a href="/order">Fazer Pedido</a>
             </li>
           )}
-          {user && user.role === "kitchen" && (
+          {user && user.role === "chef" && (
             <li>
               <a href="/kitchen">Todos os Pedidos</a>
             </li>

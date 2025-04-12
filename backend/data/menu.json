@@ -8,5 +8,15 @@
     "starter": "Salada",
     "main": "Hamburguer",
     "dessert": "Pudim"
+  },
+  {
+    "starter": "Croquetes",
+    "main": "Frango",
+    "dessert": "Sorvete"
+  },
+  {
+    "starter": "Batata frita",
+    "main": "Pizza",
+    "dessert": "Pudim"
   }
 ]

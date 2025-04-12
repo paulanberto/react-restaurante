@@ -1,14 +1,23 @@
 [
   {
     "customer": "Mauro Coelho",
-    "starter": "Bruschetta",
+    "starters": "Bruschetta",
     "main": "Pizza",
-    "dessert": "Sorvete"
+    "desserts": "Sorvete",
+    "status": "delivered"
   },
   {
     "customer": "Marcos Paiva",
-    "starter": "Salada",
+    "starters": "Salada",
     "main": "Hamburguer",
-    "dessert": "Pudim"
+    "desserts": "Pudim",
+    "status": "in_progress"
+  },
+  {
+    "customer": "Marcos Paiva",
+    "starters": "Croquetes",
+    "main": "Frango",
+    "desserts": "Sorvete",
+    "status": "in_progress"
   }
 ]

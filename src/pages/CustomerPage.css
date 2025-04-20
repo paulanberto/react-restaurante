@@ -1,0 +1,19 @@
+.menu-page {
+  font-family: Verdana, sans-serif;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.btn-customer {
+  background-color: #8a9a5b !important;
+  border-color: #8a9a5b !important;
+  color: white !important;
+}
+
+.text-muted {
+  margin-top: 30px;
+}

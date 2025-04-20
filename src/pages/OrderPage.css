@@ -1,0 +1,140 @@
+.order-card {
+  max-width: 800px;
+}
+
+.menu-page {
+  font-family: Verdana, sans-serif;
+}
+
+.order-form {
+  margin-top: 20px;
+}
+
+.form-section {
+  margin-bottom: 30px;
+}
+
+.form-section-title {
+  font-size: 1.5rem;
+  color: #4a6741;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.form-control {
+  margin-bottom: 20px;
+}
+
+.form-control label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.menu-select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: "Georgia", serif;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  color: #333;
+  transition: border-color 0.3s;
+}
+
+.menu-select:focus {
+  border-color: #c6b050;
+  outline: none;
+}
+
+.menu-select option {
+  padding: 10px;
+}
+
+.message-container {
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.error-message {
+  background-color: rgba(255, 0, 0, 0.1);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  color: #d32f2f;
+}
+
+.success-message {
+  background-color: rgba(76, 175, 80, 0.1);
+  border: 1px solid rgba(76, 175, 80, 0.3);
+  color: #388e3c;
+}
+
+.message-container p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.selected-menu-preview {
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-left: 4px solid #c6b050;
+}
+
+.selected-menu-preview h3 {
+  color: #4a6741;
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.menu-preview-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.order-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.order-button {
+  background-color: #8a9a5b !important;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  letter-spacing: 1px;
+  font-family: "Poppins", sans-serif;
+}
+
+.order-button:hover {
+  background-color: #3a5331;
+}
+
+@media (max-width: 768px) {
+  .menu-select {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .form-section-title {
+    font-size: 1.3rem;
+  }
+
+  .order-button {
+    padding: 10px 25px;
+    font-size: 1rem;
+  }
+}

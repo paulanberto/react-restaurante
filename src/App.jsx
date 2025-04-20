@@ -13,6 +13,11 @@ import OrderPage from "./pages/OrderPage";
 import KitchenPage from "./pages/KitchenPage";
 import CreateMenuPage from "./pages/CreateMenuPage";
 import MenusPage from "./pages/MenusPage";
+import CustomerPage from "./pages/CustomerPage";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import ManagerPage from "./pages/managerPage";
+import CustomerOrManager from "./protectedRoutes/CustomerOrManager";
 
 const router = createBrowserRouter([
   {
@@ -43,7 +48,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/menus",
-        element: <OnlyManager element={<MenusPage />} />,
+        element: <CustomerOrManager element={<MenusPage />} />,
+      },
+      {
+        path: "/customer",
+        element: <OnlyCustomer element={<CustomerPage />} />,
+      },
+      {
+        path: "/manager",
+        element: <OnlyManager element={<ManagerPage />} />,
       },
     ],
   },

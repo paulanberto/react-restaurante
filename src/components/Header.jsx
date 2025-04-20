@@ -1,57 +1,46 @@
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import Button from "./Button";
+import fioriLogo from "../assets/images/fiori-logo.png";
 
 export default function Header() {
   const { user, logout } = useContext(AuthContext);
 
   return (
     <header className="navbar navbar-expand-lg bd-navbar sticky-top">
-      <nav className="container justify-content-center algin-items-center">
-        <ul className="navbar-nav gap-4 align-items-center">
-          <li className="nav-item">
-            <a href="/">Home</a>
-          </li>
-          {user && user.role === "manager" && (
-            <>
-              <li className="nav-item">
-                <a href="/menus">Todos os Menus</a>
-              </li>
-              <li className="nav-item">
-                <a href="/create-menu">Criar Menu</a>
-              </li>
-            </>
-          )}
-          {user && user.role === "customer" && (
-            <li className="nav-item">
-              <a href="/order">Fazer Pedido</a>
-            </li>
-          )}
-          {user && user.role === "chef" && (
-            <li className="nav-item">
-              <a href="/kitchen">Todos os Pedidos</a>
-            </li>
-          )}
-          {user ? (
-            <li className="nav-item">
-              <Button
-                onClick={logout}
-                className="btn btn-danger"
-                text="Logout"
-                type="button"
-              />
-            </li>
-          ) : (
-            <>
-              <li className="nav-item">
-                <a href="/signup">Registo</a>
-              </li>
-              <li className="nav-item">
-                <a href="/login">Login</a>
-              </li>
-            </>
-          )}
-        </ul>
+      <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+        <div className="container">
+          <a className="navbar-brand" href="/">
+            <img src={fioriLogo} alt="Fiori di Sicilia" />
+          </a>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div
+            className="collapse navbar-collapse justify-content-end"
+            id="navbarNav"
+          >
+            <ul className="navbar-nav">
+              {user ? (
+                <li className="nav-item">
+                  <Button
+                    onClick={logout}
+                    className="btn btn-danger"
+                    text="Logout"
+                    type="button"
+                  />
+                </li>
+              ) : (
+                <></>
+              )}
+            </ul>
+          </div>
+        </div>
       </nav>
     </header>
   );

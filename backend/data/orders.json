@@ -9,12 +9,12 @@
     "id": "i5j6k7l8",
     "customer": "Marcos Paiva",
     "menu": "Menu 2",
-    "status": "Confecção"
+    "status": "Entregue"
   },
   {
-    "id": "j9k0l1m2",
-    "customer": "Marcos Paiva",
-    "menu": "Menu 3",
-    "status": "Confecção"
+    "customer": "Paula Nunes",
+    "menu": "1745107964714",
+    "id": "1745109753105",
+    "status": "Entregue"
   }
 ]

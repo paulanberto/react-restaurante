@@ -3,6 +3,14 @@
     "starter": "Batata",
     "main": "Filé",
     "dessert": "Pudim",
+    "price": "25€",
     "id": "1744491772958"
+  },
+  {
+    "starter": "Bruschetta di Limoncello",
+    "main": "Ossobuco alla Milanese",
+    "dessert": "Tiramissu",
+    "price": "45",
+    "id": "1745107964714"
   }
 ]

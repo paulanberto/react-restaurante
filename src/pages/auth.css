@@ -1,0 +1,75 @@
+.login-container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.title {
+  margin-top: 100px;
+}
+
+.login-form {
+  margin-top: 1rem;
+}
+
+.login-card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+button.btn.btn-olive {
+  background-color: #8a9a5b !important;
+  border-color: #8a9a5b !important;
+  color: white !important;
+}
+
+.btn-olive:hover {
+  background-color: #5a5a3d;
+  border-color: #5a5a3d;
+  color: white;
+}
+
+.text-olive {
+  color: #6b6b48;
+}
+
+.navbar {
+  background-color: #a6b285 !important;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-brand img {
+  height: 40px;
+}
+
+.nav-link {
+  color: #333 !important;
+  font-weight: 500;
+  margin: 0 10px;
+}
+
+.nav-link:hover {
+  color: #6b6b48 !important;
+}
+
+.form-control {
+  border-radius: 6px;
+  border: 1px solid #ced4da;
+  padding: 0.5rem 0.75rem;
+}
+
+.form-control:focus {
+  border-color: #a6b285;
+  box-shadow: 0 0 0 0.2rem rgba(166, 178, 133, 0.25);
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    padding-top: 1rem;
+  }
+
+  .card-body {
+    padding: 1.25rem;
+  }
+}

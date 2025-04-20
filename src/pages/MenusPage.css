@@ -1,0 +1,175 @@
+.menu-page {
+  width: 100%;
+  min-height: 100vh;
+  font-family: Verdana, sans-serif;
+}
+
+.menu-banner {
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.menu-white-card {
+  background-color: white;
+  border-radius: 4px;
+  max-width: 1000px;
+  width: 100%;
+  padding: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.menu-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.olive-icon {
+  width: 80px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.restaurant-name {
+  color: #6b6b48;
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-top: 50px;
+}
+
+.menu-description {
+  text-align: center;
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto 50px;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.menus-container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.menu-section {
+  margin-bottom: 30px;
+}
+
+.menu-section-title {
+  font-size: 1.5rem;
+  color: #6b6b48;
+  font-weight: 500;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  justify-content: center;
+}
+
+.menu-section-title::before {
+  content: "";
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 15px;
+}
+
+.menu-divider {
+  height: 1px;
+  background-color: #c6b050;
+  margin-bottom: 20px;
+}
+
+.menu-items {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px dotted #ddd;
+}
+
+.item-name {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.item-price {
+  font-size: 1.1rem;
+  color: #c6b050;
+  font-weight: 500;
+}
+
+.loading-menus {
+  text-align: center;
+  padding: 30px;
+  font-style: italic;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .menu-white-card {
+    padding: 20px;
+  }
+
+  .restaurant-name {
+    font-size: 2.2rem;
+  }
+
+  .menu-description {
+    font-size: 1rem;
+  }
+
+  .item-name,
+  .item-price {
+    font-size: 1rem;
+  }
+
+  .status-message {
+    padding: 12px 20px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 500;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .success-message {
+    background-color: rgba(76, 175, 80, 0.1);
+    border: 1px solid rgba(76, 175, 80, 0.3);
+    color: #388e3c;
+  }
+
+  .error-message {
+    background-color: rgba(211, 47, 47, 0.1);
+    border: 1px solid rgba(211, 47, 47, 0.3);
+    color: #d32f2f;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

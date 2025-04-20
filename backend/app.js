@@ -35,12 +35,12 @@ app.post("/menus", async (req, res) => {
   newMenu.id = new Date().getTime().toString();
   menus.push(newMenu);
 
-  // This should be menus not newMenus
+ 
   await fs.writeFile("./data/menus.json", JSON.stringify(menus, null, 2));
   res.status(200).json({ message: "Menu Inserted!" });
 });
 
-// rotas de pedidos
+
 app.post("/orders", async (req, res) => {
   const fileContent = await fs.readFile("./data/orders.json", "utf-8");
   const orders = JSON.parse(fileContent);
@@ -75,8 +75,7 @@ app.put("/orders/:id", async (req, res) => {
   res.status(200).json({ message: "Order updated!" });
 });
 
-// rotas de usuários
-//rota de registo
+
 app.post("/signup", async (req, res) => {
   const fileContent = await fs.readFile("./data/users.json", "utf-8");
   const users = JSON.parse(fileContent);
@@ -88,7 +87,7 @@ app.post("/signup", async (req, res) => {
   res.status(200).json({ message: "User Inserted!" });
 });
 
-// rota de login
+
 app.post("/login", async (req, res) => {
   const fileContent = await fs.readFile("./data/users.json");
   const users = JSON.parse(fileContent);
@@ -114,7 +113,7 @@ app.post("/login", async (req, res) => {
   res.json(AuthUser);
 });
 
-// 404
+
 app.use((req, res, next) => {
   if (req.method === "OPTIONS") {
     return next();

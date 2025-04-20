@@ -1,6 +1,8 @@
 import { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import Button from "../components/Button";
+import "./OrderPage.css";
+import fioriLogo from "../assets/images/fiori-logo.png";
 
 export default function OrderPage() {
   const { user } = useContext(AuthContext);
@@ -64,36 +66,105 @@ export default function OrderPage() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1 className="mb-4">Fazer Pedido</h1>
+    <div className="menu-page">
+      <div className="menu-banner">
+        <div className="menu-white-card order-card">
+          <div className="menu-header">
+            <img src={fioriLogo} alt="Fiori di Sicilia" className="main-logo" />
+            <div className="menu-title-section">
+              <h1 className="restaurant-name">FAZER PEDIDO</h1>
+            </div>
+          </div>
 
-      {error && <p className="error">{error}</p>}
-      {success && <p className="success">{success}</p>}
+          <div className="menu-description">
+            <p>
+              Escolha um de nossos menus cuidadosamente elaborados e faça seu
+              pedido. Cada menu inclui entrada, prato principal e sobremesa.
+            </p>
+          </div>
 
-      <div className="bd-example m-0 border-0">
-        <div className="control no-margin">
-          <label htmlFor="menu">Menu</label>
-          <select
-            name="menu"
-            onChange={(e) => setSelectedMenu(e.target.value)}
-            id="menu"
-            required
-            value={selectedMenu}
-          >
-            <option value="">Selecione um Menu</option>
-            {menus &&
-              menus.map((menu) => (
-                <option key={menu.id} value={menu.name}>
-                  {menu.starter} - {menu.main} - {menu.dessert}
-                </option>
-              ))}
-          </select>
+          {error && (
+            <div className="message-container error-message">
+              <p>{error}</p>
+            </div>
+          )}
+          {success && (
+            <div className="message-container success-message">
+              <p>{success}</p>
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} className="order-form">
+            <div className="form-section">
+              <h2 className="form-section-title">SELEÇÃO DE MENU</h2>
+              <div className="menu-divider"></div>
+
+              <div className="form-control">
+                <label htmlFor="menu">Escolha seu menu completo:</label>
+                <select
+                  name="menu"
+                  onChange={(e) => setSelectedMenu(e.target.value)}
+                  id="menu"
+                  required
+                  value={selectedMenu}
+                  className="menu-select"
+                >
+                  <option value="">Selecione um Menu</option>
+                  {menus &&
+                    menus.map((menu) => (
+                      <option key={menu.id} value={menu.name || menu.id}>
+                        Menu {menu.id}: {menu.starter} - {menu.main} -{" "}
+                        {menu.dessert} - {menu.price}€
+                      </option>
+                    ))}
+                </select>
+              </div>
+            </div>
+
+            {selectedMenu && (
+              <div className="selected-menu-preview">
+                <h3>Detalhes do Menu Selecionado</h3>
+                {menus &&
+                  menus
+                    .filter(
+                      (menu) =>
+                        (menu.name || menu.id.toString()) === selectedMenu
+                    )
+                    .map((menu) => (
+                      <div key={menu.id} className="menu-preview-items">
+                        <div className="menu-item">
+                          <span className="item-name">
+                            Entrada: {menu.starter}
+                          </span>
+                        </div>
+                        <div className="menu-item">
+                          <span className="item-name">
+                            Principal: {menu.main}
+                          </span>
+                        </div>
+                        <div className="menu-item">
+                          <span className="item-name">
+                            Sobremesa: {menu.dessert}
+                          </span>
+                        </div>
+                        <div className="menu-item">
+                          <span className="item-name">
+                            Valor: {menu.price}€
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+              </div>
+            )}
+
+            <div className="order-actions">
+              <button type="submit" className="order-button">
+                CONFIRMAR PEDIDO
+              </button>
+            </div>
+          </form>
         </div>
       </div>
-
-      <p className="form-actions">
-        <Button text="Salvar" />
-      </p>
-    </form>
+    </div>
   );
 }

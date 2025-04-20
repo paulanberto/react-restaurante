@@ -30,5 +30,21 @@
     "firstName": "Bruno",
     "lastName": "Balmaint",
     "role": "chef"
+  },
+  {
+    "email": "paula.nunes@gmail.com",
+    "password": "1234",
+    "firstName": "Paula",
+    "lastName": "Nunes",
+    "role": "customer",
+    "termsAccepted": false
+  },
+  {
+    "email": "helder.burato@gmail.com",
+    "password": "1234",
+    "firstName": "Helder",
+    "lastName": "Burato",
+    "role": "chef",
+    "termsAccepted": false
   }
 ]
